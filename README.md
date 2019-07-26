@@ -1,0 +1,1 @@
+Hi, this is a python recommendation system utilizing kaggle databases avaiable at: https://www.kaggle.com/azathoth42/myanimelist/version/5#anime_filtered.csv

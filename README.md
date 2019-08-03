@@ -39,7 +39,7 @@ This repository is being developed as part of the **Unit 4 of our Programming** 
     -Carolina Garma
     -Guillermo Montes de Oca
     
- In case of any doubt our inquirie, please contact us through any of the following mails:
+ In case of any doubt or inquiry, please contact us through any of the following mails:
  
     js.acevedo2000@gmail.com
     147ptm@gmail.com

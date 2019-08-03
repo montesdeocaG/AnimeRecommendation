@@ -7,18 +7,18 @@ _https://www.kaggle.com/azathoth42/myanimelist/version/5#anime_filtered.csv_
 
 The **Python libraries** used for this project are:
 
-For the base of the code:
+(For the base of the code):
   
     -Pandas
     
-For data visualization in the development of the code:
+(For data visualization in the development of the code):
   
     -Seaborn
     -Matplotlib.pyplot
     -Numpy
     
-Additionally, this Reccomendation System will be adapted for automatized and adapted for Discord Bot.
-The code corresponding to the base of the bot is available in the **master** branch, however and due to incompatibility of the library _Discord.py_ with _Python 3.7_, it is based on _Python 3.6_. 
+Additionally, this Recomendation System will be adapted for automatized and adapted for Discord Bot.
+The code corresponding to the base of the bot is available in the **master** branch; however, due to incompatibility of the library _Discord.py_ with _Python 3.7_, it is based on _Python 3.6_. 
 
 
 Discord.py documentation: _https://discordpy.readthedocs.io/en/latest/_

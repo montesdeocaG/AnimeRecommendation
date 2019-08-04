@@ -42,7 +42,7 @@ This repository is being developed as part of the **Unit 4 of our Programming** 
  In case of any doubt or inquiry, please contact us through any of the following mails:
  
     js.acevedo2000@gmail.com
-    147ptm@gmail.com
+    kruang@pm.me
     tokiyomi@hotmail.com
 
 **2019. All Rights Reserved ©.**

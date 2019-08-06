@@ -21,6 +21,10 @@ def conejorandom():
     con = [r'C:\Users\Saulo\Desktop\discordbot\conejo0.jpg', r'C:\Users\Saulo\Desktop\discordbot\conejo1.jpg', r'C:\Users\Saulo\Desktop\discordbot\conejo2.jpg', r'C:\Users\Saulo\Desktop\discordbot\conejo3.jpg', r'C:\Users\Saulo\Desktop\discordbot\conejo4.jpg']
     return random.choice(con)
 
+def alexarandom():
+    ale = ["Hi, how can I help you?", "May I help you?", "Howdy! What can I do for you?", "Good morning!", "What's up?", "Heyo! :)", "What should I do?"]
+    return random.choice(ale)
+
 @client.event
 async def on_message(msg):
     #para que el bot no se responda solo...
@@ -32,6 +36,24 @@ async def on_message(msg):
     if msg.content == ('$hola'):
         # la respuesta menciona la usuario que llamó al bot)
         await msg.channel.send('Qué hubo, {0.author.mention}?'.format(msg))
+
+    if msg.content == ('alexa'):
+        await msg.channel.send(alexarandom())
+
+    if msg.content == ('give me an anime recommendation'):
+        await msg.channel.send("Sure! But first, tell me the name of an anime you really like:")
+
+    if msg.content == ('anime1'):
+        await msg.channel.send("I think you may like **animereco1**, why don't you give it a try?")
+
+    if msg.content == ('anime2'):
+        await msg.channel.send("You definitely should watch **animereco2**, you'll love it!")
+
+    if msg.content == ('anime3'):
+        await msg.channel.send("Have you heard about **animereco3**? Go and watch it!")
+
+    if msg.content == ('play despacito'):
+        await msg.channel.send("I'm not playing despacito you dumbass.")
 
     if msg.content == ('conejo'):
         #utilizando la funcion conejo y la lista de imagenes, postea una random al detecta el comando

@@ -43,14 +43,9 @@ async def on_message(msg):
     if msg.content == ('give me an anime recommendation'):
         await msg.channel.send("Sure! But first, tell me the name of an anime you really like:")
 
-    if msg.content == ('anime1'):
-        await msg.channel.send("I think you may like **animereco1**, why don't you give it a try?")
+    if msg.content == ('INPUT: HERE GOES THE NAME OF THE ANIME'):
+        await msg.channel.send("I think you may like **HERE GOES THE RECOMMENDATION**, why don't you give it a try?")
 
-    if msg.content == ('anime2'):
-        await msg.channel.send("You definitely should watch **animereco2**, you'll love it!")
-
-    if msg.content == ('anime3'):
-        await msg.channel.send("Have you heard about **animereco3**? Go and watch it!")
 
     if msg.content == ('play despacito'):
         await msg.channel.send("I'm not playing despacito you dumbass.")

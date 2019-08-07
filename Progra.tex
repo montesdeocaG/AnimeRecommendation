@@ -7,13 +7,14 @@
 \usepackage{graphicx}
 \usepackage{textcomp}
 \usepackage{xcolor}
+\usepackage{float}
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 \begin{document}
 \newcommand{\SubItem}[1]{
 	{\setlength\itemindent{15pt} \item[-] #1}
 }
-\title{Anime Recommendation System Through a Discord Bot\\
+\title{Anime Recommendation System From A Data Set In Python 3.7.\\
 {\footnotesize \textsuperscript{}Programming Project: Unit 4}
 \thanks{Identify applicable funding agency here. If none, delete this.}
 }
@@ -23,60 +24,109 @@
 js.acevedo2000@gmail.com}
 \and
 \IEEEauthorblockN{Carolina Garma}
-\IEEEauthorblockA{TokiYomi\\
-tokiyomi@hotmail.com}
+\IEEEauthorblockA{Tokiyomi\\
+carolina-escoffie@hotmail.com}
 \and
 \IEEEauthorblockN{Guillermo Montes de Oca}
-\IEEEauthorblockA{MontesdeOcaG\\
-kruang@mail.me}
+\IEEEauthorblockA{montesdeocaG\\
+kruang@pm.me}
 }
 
 \maketitle
 
 \begin{abstract}
-This document is a model and instructions for \LaTeX.
-This and the IEEEtran.cls file define the components of your paper [title, text, heads, etc.]. *CRITICAL: Do Not Use Symbols, Special Characters, Footnotes, 
-or Math in Paper Title or Abstract.
+This document is a superficial view of a usually forgotten application of Data Science in our society: Recommendation Systems; and the process of development and application of a recommendation system algorithm to an anime dataset. Two systems from different approaches were developed: the first one being content-based and the second collaborative-based.
+
+A comparison of approaches including differences of inputs/outputs, codes, mathematics and accuracy of results was made as conclusion. 
+ 
 \end{abstract}
 
 \begin{IEEEkeywords}
-component, formatting, style, styling, insert
+Anime, Data Science, Recommendation System, Programming, Python 3.7.
 \end{IEEEkeywords}
 
 \section{Introduction}
 Nowadays, data science has crowned itself as one of the most-popular disruptive technologies, and its mainly focused on Artificial Intelligence or Data Mining, both being data-based tasks with a lot of usefulness in what we know today as the fourth industrial revolution: enormous amounts of information (<big data>) are produced each second, and it is necessary to find out the value behind each kilobyte of it; whether it is for decision-making in big companies or for our virtual assistant to know if it is going to rain in the evening \cite{b1}.  
-
-As it happens with all the new technologies being developed, data science also has an “underground” side, a side which even though it is an important application of it and it is present in popular websites and online services, we may not notice it: recommendation systems. Those algorithms which suggest you buy a mouse-pad to complement the new mouse you are ordering from Amazon, or those which make appear an advertisement of that new video-game you just were talking about with your friend \cite{b2}. 
-
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\linewidth]{recommendationintro}
+	\caption{Recommendation System Example.}
+	\label{1}
+\end{figure}
+As it happens with all the new technologies being developed, data science also has an “underground” side, a side which even though it is an important application of it and it is present in popular websites and online services, we may not notice it: recommendation systems. Those algorithms which suggest you buy a mouse-pad to complement the new mouse you are ordering from Amazon, or those which make appear an advertisement of that new video-game you just were talking about with your friend \cite{b2}.
+\\
 Recommendation systems may seem easy to develop but they could not be more complicated, as it is necessary to take in consideration many factors: from what are we trying to recommend (movies, products, food, places…), going through which and how much data do we have (reviews, scores, names, locations…) and even to who the recommendation is aimed (a teenager aged 16-18 who lives in the south of Merida, a woman who is checking the prices of flights to Cancun or a programming teacher who likes videogames) \cite{b3}.
-
+\\
 Either we are trying to obtain content or user-based recommendations, the math behind a simple system of this type rely on probability and statistics: depending on the complexity, accuracy and amount of data available to use, our mathematical procedure will be more or less complicated, always based on matrix operations and correlations \cite{b4}. All in all, these systems only seek to make the life of the user a bit simpler by “choosing for them”, and sometimes trying to obtain a profit from that automatized selection \cite{b5}.
 
 \section{Motivation}
 In modern society people have too many options to choose in many aspects of daily life: clothing, eating, reading, listening, watching, playing, and many other actions we do everyday now offer a wide variety and let the user decide what he/she wants to do. For this new (and kind of unlimited) selection of possibilities, a recommender system which takes as base data previously provided by a determined user and returns a customized recommendation for any of those tasks, can indeed make our lives a little bit easier.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\linewidth,height=.415\linewidth]{animerecommendation}
+	\caption{Anime Recommendation System Example.}
+	\label{2}
+\end{figure}
 
 Taking in consideration the advantages of Recommendation Systems, we seek to build one and adapt it to a field which we like, and where it has not been applied yet: anime (“Japanese animation”). Even if there are services such as Netflix or Spotify which have this type of algorithms and use them for series, movies or music, it still not applied to anime series in a way that it is accessible to the user and easy to use.
-
+\\
 Crunchyroll could be mentioned as an online service of anime streaming with a recommendation system, however, its system is based on an item-item approach: it is not personalized for each user and instead it offers predetermined suggestions for each anime \cite{b6}. Having a content-based approach based on similarities between anime series and scores given by users may result in more accurate recommendations.
 
 \section{Objective}
 \begin{itemize}
-	\item Develop two Anime Recommendation Systems (A.R.S) from a dataset obtained at Kaggle \cite{b7}, through different approaches:
+	\item Develop two Anime Recommendation Systems (A.R.S) in Python 3.7 from a dataset obtained at Kaggle \cite{b7}, through different approaches:
 	\SubItem A collaborative approach: according to an input (the name of an anime) provided by the user, it will suggest other similar anime series to watch (depending on the score given by other users).
 	\SubItem A content-based approach: according to an input (scores of different anime genres) provided by the user, it will suggest other anime series to watch which may be similar in genre (it could also apply for studios, directors, producers, etc.).
 \end{itemize}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\linewidth,height=0.595\linewidth]{contentcollaborative}
+	\caption{Collaborative and Content Approaches Comparison.}
+	\label{3}
+\end{figure}
+
 
 \section{Problem Description}
 
-Taking in consideration the advantages of Recommendation Systems, we seek to build one and adapt it to a field which we like, and where it has not been applied yet: anime (“Japanese animation”). Even if there are services such as Netflix or Spotify which have this type of algorithms and use them for series, movies or music, it still not applied to anime series in a way that it is accessible to the user and easy to use.
+As the main objective of any recommendation system is to ease the decision-making of users and can be applied for multiple contexts of daily life, they also should be applied tasks of determined groups of people. Going back to our motivation, it is necessary to remark that recommendation systems remain not being applied at all or in poor ways ("similar users" approach) for online services of anime streaming, which has become a popular way of entertainment in modern society.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.92\linewidth]{itembased}
+	\caption{Item Based Recommendation Approach ("Similar Users").}
+	\label{3}
+\end{figure}
+
 
 \section{Proposed Solution}
 
-Taking in consideration the advantages of Recommendation Systems, we seek to build one and adapt it to a field which we like, and where it has not been applied yet: anime (“Japanese animation”). Even if there are services such as Netflix or Spotify which have this type of algorithms and use them for series, movies or music, it still not applied to anime series in a way that it is accessible to the user and easy to use.
+Getting ahead of big companies, we decided to take a step forward and develop a system which, based on an input provided, recommends the user some anime series he or she may like: An Anime Recommendation System (A.R.S. for short) from a dataset available online at Kaggle \cite{b7}.
+
+The benefits of the implementation of this system may include but is not limited to a positive economic impact: if applied for an online streaming anime service, it could hook the users to new anime series they did not know before, through certain recommendations; time and effort would as well be saved. The commercialization of the algorithm will be easy to reach due to the nature of the problem and the fact that this solution is considered “innovative”.
 
 \section{Results}
 
-Taking in consideration the advantages of Recommendation Systems, we seek to build one and adapt it to a field which we like, and where it has not been applied yet: anime (“Japanese animation”). Even if there are services such as Netflix or Spotify which have this type of algorithms and use them for series, movies or music, it still not applied to anime series in a way that it is accessible to the user and easy to use.
+During the testing of our systems, the most "accurate" results (from a subjective perspective based on the preferences of who tested it) were obtained from the collaborative-based system: it uses as reference the records of thousands of other users to make an accurate prediction.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\linewidth]{inputGuillo}
+	\caption{Input of the Collaborative-Based Recommendation System: "One Piece".}
+	\label{5}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\linewidth]{outputGuillo}
+	\caption{Output of the Collaborative-Based Recommendation System: Anime Series Similar to "One Piece".}
+	\label{6}
+\end{figure}
+
+In contrast, the content-based system make not-so-accurate and wider recommendations: it is based on the genres the user likes, and it makes recommendation of anime series tagged within those genres. The more inputs (genres) a person gives, the more "accurate" recommendations will be; therefore, if the user only gives a small quantity of inputs, the pool of possible recommendations will be so big that it will output random but slightly accurate ones.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.05\linewidth]{inputoutputCaro}
+	\caption{Input and Output of the Content-Based Recommendation System: Preferences of Users Predefined.}
+	\label{7}
+\end{figure}
 
 \begin{thebibliography}{00}
 \bibitem{b1} Lin, K. (2019). “Role of Data Science in Artificial Intelligence”. Retrieved from: https://towardsdatascience.com/role-of-data-science-in-artificial-intelligence-950efedd2579
@@ -88,5 +138,6 @@ Taking in consideration the advantages of Recommendation Systems, we seek to bui
 \bibitem{b7} Azathoth. (2018). “MyAnimeList Dataset”. Retrieved from: https://www.kaggle.com/azathoth42/myanimelist/version/5\#anime\_filtered.csv
 
 \end{thebibliography}
+
 
 \end{document}
